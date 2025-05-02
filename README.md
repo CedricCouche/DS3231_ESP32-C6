@@ -6,10 +6,10 @@ Basic functionnalities of DS3231 RTC module on a ESP32-C6 dev board.
 
 - DS3231 GT584:
     - Give accurate date & time (secondes, minutes, hours) and date (day, month, year, day of the week)
-    - bisextile years are corrected until year 2100.
-    - Crystal is temperature compensated for more accurate measures
-    - Battery is a very common CR2032
-    - [Link to the manufacturer website](https://sensirion.com/products/catalog/SCD30)
+    - Leap-Year Compensation Valid Up to 2100
+    - Crystal oscillator is temperature compensated (TCXO) for more accurate measures
+    - Battery is a common CR2032
+    - [Link to the DS3231 Data Sheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf)
 - ESP32-C6-DevKit C1
     - System on a Chip (SoC)
     - [Link to the manufacturer website](https://www.espressif.com/en/products/socs/esp32-c6)
@@ -28,13 +28,14 @@ Developed on Arduino IDE 2.3.6
 
 Librairies required : 
  - for I2C interface : Wire.h
- - for SCD30 : SparkFun_SCD30_Arduino_Library.h
+ - for DS3132 : RTClib.h
 
 
 ## Code example 01 : reading date & time
 
+Display date & time
 
-### Example of output
+**Example of output**
 
 ```
 18:29:22.310 -> Date & Time: 2025/4/30 (Wednesday) 18:29:00
@@ -45,8 +46,9 @@ Librairies required :
 
 ## Code example 02 : setting date & time
 
+Interactively setup Date & Time using serial monitor
 
-### Example of output
+**Example of output**
 
 ```
 20:13:24.382 -> -------------------------------------------
